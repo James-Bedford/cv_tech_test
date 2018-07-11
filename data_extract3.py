@@ -14,3 +14,13 @@ url = urlopen('https://itunes.apple.com/search?term={0}&entity=musicVideo'.forma
 
 resp = json.loads(url.read().decode('utf-8'))
 pprint(resp)
+
+
+class JSONObject:
+    def __init__(selfself,d):
+        self.__dict__ = d
+
+data = json.loads(resp,object_hook=JSONObject)
+print(data.trackName)
+
+#pprint(resp('collectionName'))
